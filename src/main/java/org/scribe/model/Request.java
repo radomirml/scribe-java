@@ -382,6 +382,15 @@ public class Request
     this.connection = connection;
   }
 
+  public void reset()
+  {
+    if (connection != null) {
+      //connection.close(); // TODO equivalent?
+      connection = null;
+    }
+    this.querystringParams.remove(OAuthConstants.ACCESS_TOKEN);
+  }
+
   @Override
   public String toString()
   {

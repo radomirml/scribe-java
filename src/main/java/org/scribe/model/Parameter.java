@@ -44,4 +44,14 @@ public class Parameter implements Comparable<Parameter>
 
     return keyDiff != 0 ? keyDiff : value.compareTo(parameter.value);
   }
+
+  public String getKey()
+  {
+    return key;
+  }
+
+  public String getValue()
+  {
+    return value;
+  }
 }

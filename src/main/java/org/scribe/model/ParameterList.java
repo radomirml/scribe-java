@@ -2,6 +2,7 @@ package org.scribe.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.scribe.utils.OAuthEncoder;
@@ -41,6 +42,18 @@ public class ParameterList
   public void add(String key, String value)
   {
     params.add(new Parameter(key, value));
+  }
+
+  public void remove(String key)
+  {
+    Iterator it = params.iterator();
+    while(it.hasNext())
+    {
+      Parameter p = (Parameter) it.next();
+      if (p.getKey().equals(key)) {
+        it.remove();        
+      }
+    }
   }
 
   public String appendTo(String url)
